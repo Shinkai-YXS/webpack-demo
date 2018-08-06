@@ -11,7 +11,17 @@ module.exports = {
     filename: '[name].js' // 出口和入口文件名一样
   },
   // 模块，解读
-  module: {},
+  module: {
+    // 规则
+    rules: [
+      {
+        // 以正则表达式的形式来表示需要处理的文件扩展名
+        test: /\.css$/,
+        // 使用哪些 loader
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  },
   // 配置插件
   plugins: [],
   // 配置服务
