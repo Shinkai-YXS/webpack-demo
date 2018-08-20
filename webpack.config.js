@@ -33,7 +33,7 @@ module.exports = {
         removeAttributeQuotes: true //压缩 去掉引号
       },
       hash: true, //防止缓存
-      template: './src/index.html'// 要打包的html模版路径和文件名称
+      template: path.resolve(__dirname,'./src/index.html')// 要打包的html模版路径和文件名称
     })
   ],
   // 配置服务
