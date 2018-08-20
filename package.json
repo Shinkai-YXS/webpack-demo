@@ -9,11 +9,19 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^3.6.0",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^2.9.7"
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.22.1",
+    "webpack": "^4.16.5"
   },
   "dependencies": {
     "@types/del": "^3.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuxiaoshuang1994/webpack-demo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yuxiaoshuang1994/webpack-demo/issues"
+  },
+  "homepage": "https://github.com/yuxiaoshuang1994/webpack-demo#readme"
 }
