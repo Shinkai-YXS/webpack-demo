@@ -1,5 +1,6 @@
 const path = require('path')
 const uglify = require('uglifyjs-webpack-plugin')
+const htmlPlugin = require('html-webpack-plugin')
 module.exports = {
   // 入口
   entry: {
@@ -25,7 +26,15 @@ module.exports = {
   },
   // 配置插件
   plugins: [
-    new uglify()
+    // new uglify()
+    new htmlPlugin({
+      // 压缩
+      minify: {
+        removeAttributeQuotes: true //压缩 去掉引号
+      },
+      hash: true, //防止缓存
+      template: './src/index.html'// 要打包的html模版路径和文件名称
+    })
   ],
   // 配置服务
   devServer: {
