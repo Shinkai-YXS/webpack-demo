@@ -21,6 +21,16 @@ module.exports = {
         test: /\.css$/,
         // 使用哪些 loader
         use: ['style-loader', 'css-loader']
+      },{
+        test: /\.(png|jpg|jpeg|gif)/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 5000 // 大于 5000 个字节的图片正常打包，小于 5000 字节的图片以 base64 的方式引用。
+            }
+          }
+        ]
       }
     ]
   },
