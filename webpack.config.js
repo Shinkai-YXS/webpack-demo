@@ -1,6 +1,7 @@
 const path = require('path')
 const uglify = require('uglifyjs-webpack-plugin')
 const htmlPlugin = require('html-webpack-plugin')
+const extractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = {
   // 入口
   entry: {
@@ -20,7 +21,11 @@ module.exports = {
         // 以正则表达式的形式来表示需要处理的文件扩展名
         test: /\.css$/,
         // 使用哪些 loader
-        use: ['style-loader', 'css-loader']
+        // use: ['style-loader', 'css-loader']
+        use: extractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },{
         test: /\.(png|jpg|jpeg|gif)/,
         use: [
@@ -44,7 +49,8 @@ module.exports = {
       },
       hash: true, //防止缓存
       template: path.resolve(__dirname,'./src/index.html')// 要打包的html模版路径和文件名称
-    })
+    }),
+    new extractTextPlugin("./css/index.css") // ./css/index.css 是分离后的路径未知
   ],
   // 配置服务
   devServer: {
